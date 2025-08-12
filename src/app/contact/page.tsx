@@ -63,7 +63,7 @@ export default function Contact() {
             Contact
           </h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
-            Interested in commissioning a piece or purchasing existing work? I'd love to hear from you.
+            Interested in commissioning a piece or purchasing existing work? I&apos;d love to hear from you.
           </p>
         </div>
       </section>
@@ -157,7 +157,7 @@ export default function Contact() {
 
                 {submitStatus === 'success' && (
                   <div className="p-3 sm:p-4 bg-white baroque-border text-black text-sm sm:text-base">
-                    Thank you for your message! I'll get back to you as soon as possible.
+                    Thank you for your message! I&apos;ll get back to you as soon as possible.
                   </div>
                 )}
 
