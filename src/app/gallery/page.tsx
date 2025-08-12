@@ -30,8 +30,8 @@ const paintings: Painting[] = [
   { id: 2, title: "Still Life 2", year: 2024, size: "", technique: "Oil on canvas", filename: "still_life_2.jpeg", category: "still_life" },
 
   { id: 9, title: "Morte De Jose Arcadio", year: 2022, size: "", technique: "Oil on canvas", filename: "morte_de_jose_arcadio.jpg", category: "human_figure" },
-  { id: 17, title: "Derretimento", year: 2021, size: "", technique: "Oil on canvas", filename: "rosto.JPG", category: "human_figure" },
-  { id: 18, title: "Sangue", year: 2021, size: "", technique: "Oil on canvas", filename: "sangue.JPG", category: "human_figure" },
+  { id: 17, title: "Derretimento", year: 2021, size: "", technique: "Oil on canvas", filename: "rosto.jpg", category: "human_figure" },
+  { id: 18, title: "Sangue", year: 2021, size: "", technique: "Oil on canvas", filename: "sangue.jpg", category: "human_figure" },
   { id: 4, title: "MBGA", year: 2022, size: "", technique: "Mixed Media", filename: "MBGA.jpeg", category: "human_figure" },
   
   // Others
