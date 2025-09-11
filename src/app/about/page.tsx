@@ -39,7 +39,7 @@ export default function About() {
                 </p>
                 
                 <p className="text-gray-700 leading-relaxed text-lg font-light mb-6">
-                  I greatly enjoy the experience of painting with oil, for it is my favoritte technique. But experimenting other means is very important to me.
+                  I greatly enjoy the experience of painting with oil, it is my preferred technique. But going for other means (mostly Acrylic and Digital) is very significant and enriching.
                   I am attentive to detail, although finding not being super academic or orthodox a key element of my style.
                 </p>
 
