@@ -104,7 +104,7 @@ export default function Home() {
               href="/gallery"
               className="inline-block px-5 sm:px-6 lg:px-8 py-2.5 sm:py-3 baroque-border text-black font-light hover:bg-black hover:text-white elegant-transition text-sm sm:text-base"
             >
-              View All Works
+              View All
             </Link>
           </div>
         </div>
