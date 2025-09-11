@@ -39,12 +39,12 @@ export default function About() {
                 </p>
                 
                 <p className="text-gray-700 leading-relaxed text-lg font-light mb-6">
-                  I will often prefer to use oil because it feels better. But I love to experiment.
-                  I am attentive to detail, but still consider my art to be far from academic.
+                  I greatly enjoy the experience of painting with oil, for it is my favoritte technique. But experimenting other means is very important to me.
+                  I am attentive to detail, although finding not being super academic or orthodox a key element of my style.
                 </p>
 
                 <p className="text-gray-700 leading-relaxed text-lg font-light">
-                  Born and raised in Brazil, I have learned to love art from my Mom. And keep feeding this love with all the artistic expressions I am privileged to see and experience.
+                  Born and raised in Brazil, I have learned to love art from my Mom. Love that I keep feeding with all the artistic expressions I am privileged to come accross.
                 </p>
               </div>
             </div>
