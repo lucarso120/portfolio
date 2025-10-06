@@ -1,8 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { db } from '@/lib/firebase';
+import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 
 interface PaintingDetails {
   id: string;
@@ -69,6 +71,7 @@ interface SelectedPainting extends PaintingDetails {
 export default function TwoVisionsPage() {
   const [activeTab, setActiveTab] = useState<'luca' | 'maria_julia'>('luca');
   const [selectedPaintingInfo, setSelectedPaintingInfo] = useState<SelectedPainting | null>(null);
+  const [currentBids, setCurrentBids] = useState<Record<string, number>>({});
 
   const currentArtist = artists.find(a => a.folder === activeTab)!;
 
@@ -79,6 +82,38 @@ export default function TwoVisionsPage() {
     'a': 'Panel A',
     'b': 'Panel B',
   };
+
+  // Fetch current bids for all paintings
+  useEffect(() => {
+    const fetchBids = async () => {
+      const allPaintingIds = artists.flatMap(artist => artist.paintings.map(p => p.id));
+      const bidsMap: Record<string, number> = {};
+
+      for (const paintingId of allPaintingIds) {
+        try {
+          const bidsRef = collection(db, 'bids');
+          const q = query(
+            bidsRef,
+            where('paintingId', '==', paintingId),
+            orderBy('amount', 'desc'),
+            limit(1)
+          );
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const highestBid = querySnapshot.docs[0].data();
+            bidsMap[paintingId] = highestBid.amount;
+          }
+        } catch (err) {
+          console.error(`Error fetching bid for ${paintingId}:`, err);
+        }
+      }
+
+      setCurrentBids(bidsMap);
+    };
+
+    fetchBids();
+  }, []);
 
   // Group paintings by panel
   const groupedPaintings = currentArtist.paintings.reduce((acc, painting) => {
@@ -168,6 +203,12 @@ export default function TwoVisionsPage() {
                                 sizes="(max-width: 640px) 50vw, 25vw"
                                 className="object-cover"
                               />
+                              {/* Current Bid Badge */}
+                              {currentBids[painting.id] && (
+                                <div className="absolute top-2 right-2 bg-black bg-opacity-80 text-white px-2 py-1 text-xs">
+                                  ${currentBids[painting.id]}
+                                </div>
+                              )}
                               {/* Hover/Touch Overlay */}
                               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 elegant-transition flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
                                 <button
@@ -222,6 +263,12 @@ export default function TwoVisionsPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
                   />
+                  {/* Current Bid Badge */}
+                  {currentBids[painting.id] && (
+                    <div className="absolute top-2 right-2 bg-black bg-opacity-80 text-white px-2 py-1 text-xs sm:text-sm">
+                      ${currentBids[painting.id]}
+                    </div>
+                  )}
                   {/* Hover/Touch Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 elegant-transition flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
                     <button
