@@ -217,7 +217,7 @@ export default function Contact() {
                     <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                   </a>
                   <a
-                    href="https://tiktok.com/@lica0711"
+                    href="https://tiktok.com/@lica0011"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 sm:p-3 bg-white baroque-border hover:bg-black hover:text-white elegant-transition"
@@ -236,8 +236,8 @@ export default function Contact() {
                 </h3>
                 <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   I accept a limited number of commissions each year. Portrait commissions typically range from 
-                  $2,000-$8,000 depending on size and complexity. Landscape and still life commissions start at 
-                  $1,500. Please allow 3-6 months for completion. A 50% deposit is required to begin work.
+                  €300-€3,000 depending on size and complexity. Landscape and still life commissions start at 
+                  €100. Please allow 2-3 months for completion. A 50% deposit is required.
                 </p>
               </div>
             </div>

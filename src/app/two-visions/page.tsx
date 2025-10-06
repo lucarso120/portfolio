@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Instagram } from 'lucide-react';
 import { db } from '@/lib/firebase';
 import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
+import { FaTiktok } from 'react-icons/fa';
 
 interface PaintingDetails {
   id: string;
@@ -22,6 +23,8 @@ interface PaintingDetails {
 interface Artist {
   name: string;
   folder: string;
+  instagram?: string;
+  tiktok?: string;
   paintings: PaintingDetails[];
 }
 
@@ -29,6 +32,8 @@ const artists: Artist[] = [
   {
     name: "Luca",
     folder: "luca",
+    instagram: "https://instagram.com/luca__rt",
+    tiktok: "https://tiktok.com/@lica0011",
     paintings: [
       // Panel: plants, lighters
       { id: 'still_life_3', name: 'Still Life 3', filename: 'still_life_3.jpeg', panel: 'plants_lighters', forSale: true },
@@ -46,6 +51,8 @@ const artists: Artist[] = [
   {
     name: "Maria Júlia",
     folder: "maria_julia",
+    instagram: "https://www.instagram.com/mariajulia.rds/",
+    tiktok: "https://tiktok.com/@mariajulia.rd",
     paintings: [
       // Single paintings
       { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true },
@@ -147,14 +154,19 @@ export default function TwoVisionsPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black mb-4 sm:mb-6">
             Two Visions
           </h1>
-          <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto mb-8 sm:mb-12">
-            A collaborative exhibition exploring diverse perspectives through art.
+          <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto mb-8 sm:mb-5">
+            Brings together the artistic perspectives of two siblings who share a passion for painting, but express
+            it in distinct, complementary ways. A collaborative exhibition exploring diverse perspectives through art.
+
+          </p>
+            <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto mb-8 sm:mb-5">
+            We invite you to experience the contrasts, resonances and dialogues between our works.
           </p>
         </div>
       </section>
 
       {/* Artist Tabs */}
-      <section className="pb-8 sm:pb-12">
+      <section className="pb-4 sm:pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center gap-4">
             {artists.map((artist) => (
@@ -170,6 +182,39 @@ export default function TwoVisionsPage() {
                 {artist.name}
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Follow Us Section */}
+      <section className="pb-8 sm:pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-light text-gray-600 mb-3">Follow {currentArtist.name}</p>
+            <div className="flex justify-center gap-4">
+              {currentArtist.instagram && (
+                <a
+                  href={currentArtist.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 baroque-border text-black hover:bg-black hover:text-white elegant-transition"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+                </a>
+              )}
+              {currentArtist.tiktok && (
+                <a
+                  href={currentArtist.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 baroque-border text-black hover:bg-black hover:text-white elegant-transition"
+                  aria-label="TikTok"
+                >
+                  <FaTiktok className="w-5 h-5 sm:w-6 sm:h-6" />
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </section>
