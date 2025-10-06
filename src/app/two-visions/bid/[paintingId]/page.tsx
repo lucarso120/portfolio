@@ -6,6 +6,40 @@ import { db } from '@/lib/firebase';
 import { collection, addDoc, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 import { X } from 'lucide-react';
 
+// Import painting data
+const artists = [
+  {
+    name: "Luca",
+    folder: "luca",
+    paintings: [
+      { id: 'still_life_3', name: 'Still Life 3', filename: 'still_life_3.jpeg', panel: 'plants_lighters' },
+      { id: 'still_life_1', name: 'Still Life 1', filename: 'still_life_1.jpeg', panel: 'plants_lighters' },
+      { id: 'coronel_aureliano_buendia', name: 'Coronel Aureliano Buendia', filename: 'coronel_aureliano_buendia.JPG', panel: 'hundred_years' },
+      { id: 'ursula_iguaran', name: 'Ursula Iguaran', filename: 'ursula_iguaran.jpg', panel: 'hundred_years' },
+      { id: 'melquiades', name: 'Melquiades', filename: 'melquiades.PNG', panel: 'hundred_years' },
+      { id: 'morte_de_jose_arcadio', name: 'Morte De Jose Arcadio', filename: 'morte_de_jose_arcadio.jpg', panel: 'hundred_years' },
+      { id: 'venus', name: 'Venus', filename: 'venus.JPG' },
+      { id: 'calma_fogo_calma', name: 'Calma-Fogo-Calma', filename: 'calma-fogo-calma.jpeg' },
+    ]
+  },
+  {
+    name: "Maria Júlia",
+    folder: "maria_julia",
+    paintings: [
+      { id: 'maju_1', name: '1', filename: 'maju_1.png' },
+      { id: 'maju_2', name: '2', filename: 'maju_2.png' },
+      { id: 'autorretrato', name: 'autorretrato', filename: 'autorretrato.png' },
+      { id: 'maju_a_1', name: '1', filename: 'maju_a_1.png', panel: 'a' },
+      { id: 'maju_a_2', name: '2', filename: 'maju_a_2.png', panel: 'a' },
+      { id: 'maju_a_3', name: '3', filename: 'maju_a_3.png', panel: 'a' },
+      { id: 'maju_b_1', name: '1', filename: 'maju_b_1.png', panel: 'b' },
+      { id: 'maju_b_2', name: '2', filename: 'maju_b_2.png', panel: 'b' },
+      { id: 'maju_b_3', name: '3', filename: 'maju_b_3.png', panel: 'b' },
+      { id: 'maju_b_4', name: '4', filename: 'maju_b_4.png', panel: 'b' },
+    ]
+  }
+];
+
 export default function BidPage() {
   const params = useParams();
   const router = useRouter();
@@ -19,6 +53,13 @@ export default function BidPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+
+  // Find painting details
+  const painting = artists
+    .flatMap(artist => artist.paintings.map(p => ({ ...p, artist: artist.name })))
+    .find(p => p.id === paintingId);
+
+  const paintingName = painting ? `${painting.name} by ${painting.artist}` : paintingId;
 
   // Fetch current highest bid
   useEffect(() => {
@@ -53,7 +94,9 @@ export default function BidPage() {
     return /^[\d\s\-\+\(\)]+$/.test(phone);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -85,11 +128,19 @@ export default function BidPage() {
     }
 
     if (currentBid && amount <= currentBid) {
-      setError(`Your bid must be higher than the current bid of $${currentBid}`);
+      setError(`Your bid must be higher than the current bid of €${currentBid}`);
       return;
     }
 
+    // Show confirmation popup
+    setShowConfirmation(true);
+  };
+
+  const confirmSubmit = async () => {
+    setShowConfirmation(false);
     setLoading(true);
+
+    const amount = parseFloat(bidAmount);
 
     try {
       // Add bid to Firestore
@@ -140,7 +191,7 @@ export default function BidPage() {
               Place Your Bid
             </h1>
             <p className="text-sm text-gray-600 mb-6">
-              Painting ID: {paintingId}
+              {paintingName}
             </p>
 
             {currentBid !== null && (
@@ -166,7 +217,7 @@ export default function BidPage() {
                 {/* Bid Amount */}
                 <div>
                   <label htmlFor="bidAmount" className="block text-sm font-light text-black mb-2">
-                    Your Bid Amount ($)
+                    Your Bid Amount (€)
                   </label>
                   <input
                     type="number"
@@ -242,15 +293,66 @@ export default function BidPage() {
                 >
                   {loading ? 'Submitting...' : 'Submit Bid'}
                 </button>
-
-                <p className="text-xs text-gray-600 text-center">
-                  By submitting, you agree to be contacted regarding your bid.
-                </p>
               </form>
             )}
           </div>
         </div>
       </section>
+
+      {/* Confirmation Modal */}
+      {showConfirmation && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black bg-opacity-90 flex items-center justify-center p-4"
+          onClick={() => setShowConfirmation(false)}
+        >
+          <div
+            className="relative max-w-lg w-full bg-white p-6 sm:p-8 baroque-border"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-2xl sm:text-3xl font-light text-black mb-6">
+              Confirm Your Bid
+            </h3>
+
+            <div className="text-sm sm:text-base text-gray-800 space-y-4 mb-8 leading-relaxed">
+              <p className="font-medium text-black">
+                Important Notice:
+              </p>
+              <p>
+                Please only submit a bid if you are genuinely interested in purchasing this artwork. Your bid will remain valid until <strong>October 19, 2025 at 00:00</strong>.
+              </p>
+              <p>
+                If your bid is the highest at the deadline, you will be contacted to complete the purchase. Please note that your bid may influence the pricing decisions of other interested parties.
+              </p>
+              <p className="text-sm text-gray-600 border-t pt-4 mt-4">
+                By confirming, you agree to be contacted regarding your bid and understand the commitment involved.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => setShowConfirmation(false)}
+                className="flex-1 px-6 py-3 baroque-border text-black font-light hover:bg-gray-100 elegant-transition text-center"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmSubmit}
+                className="flex-1 px-6 py-3 bg-black text-white font-light hover:bg-gray-800 elegant-transition text-center"
+              >
+                Confirm Bid
+              </button>
+            </div>
+
+            {/* Close button */}
+            <button
+              onClick={() => setShowConfirmation(false)}
+              className="absolute top-4 right-4 text-black hover:text-gray-600 elegant-transition"
+            >
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
