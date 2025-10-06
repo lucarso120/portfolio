@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luca - Oil Painter Portfolio",
+  title: "Luca - Art Portfolio",
   description:
     "Professional oil painting portfolio showcasing original artwork and commissions",
   keywords: [
