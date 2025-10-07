@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Instagram, Video} from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram} from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { FaTiktok } from 'react-icons/fa';
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -223,7 +225,7 @@ export default function Contact() {
                     className="p-2 sm:p-3 bg-white baroque-border hover:bg-black hover:text-white elegant-transition"
                     aria-label="Twitter"
                   >
-                    <Video className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <FaTiktok className="w-5 h-5 sm:w-6 sm:h-6" />
                   </a>
 
                 </div>
