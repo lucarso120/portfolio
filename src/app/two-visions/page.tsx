@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { X, Instagram } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { db } from '@/lib/firebase';
 import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 import { FaTiktok } from 'react-icons/fa';
@@ -71,10 +71,6 @@ const artists: Artist[] = [
     ]
   }
 ];
-
-interface SelectedPainting extends PaintingDetails {
-  artistFolder: string;
-}
 
 export default function TwoVisionsPage() {
   const [activeTab, setActiveTab] = useState<'luca' | 'maria_julia'>('luca');
@@ -253,28 +249,28 @@ export default function TwoVisionsPage() {
                               {/* Hover/Touch Overlay */}
                               <div className={`absolute inset-0 bg-black elegant-transition flex items-center justify-center
                                 ${selectedPaintingId === painting.id ? 'bg-opacity-60 opacity-100' : 'bg-opacity-0 group-hover:bg-opacity-60 opacity-0 group-hover:opacity-100'}`}>
-                                {(selectedPaintingId === painting.id || window.innerWidth >= 640) && (
-                                  <>
-                                    {painting.forSale ? (
-                                      <button
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          window.location.href = `/two-visions/bid/${painting.id}`;
-                                        }}
-                                        className="px-3 py-2 bg-white text-black text-xs font-light hover:bg-gray-200 elegant-transition"
-                                      >
-                                        Buy
-                                      </button>
-                                    ) : (
-                                      <button
-                                        disabled
-                                        className="px-3 py-2 bg-gray-600 text-gray-400 text-xs font-light cursor-not-allowed"
-                                        title="Not for sale"
-                                      >
-                                        Buy
-                                      </button>
-                                    )}
-                                  </>
+                                {painting.forSale ? (
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      if (selectedPaintingId === painting.id || (typeof window !== 'undefined' && window.innerWidth >= 640)) {
+                                        window.location.href = `/two-visions/bid/${painting.id}`;
+                                      }
+                                    }}
+                                    className={`px-3 py-2 bg-white text-black text-xs font-light hover:bg-gray-200 elegant-transition
+                                      ${selectedPaintingId === painting.id ? '' : 'sm:block hidden'}`}
+                                  >
+                                    Buy
+                                  </button>
+                                ) : (
+                                  <button
+                                    disabled
+                                    className={`px-3 py-2 bg-gray-600 text-gray-400 text-xs font-light cursor-not-allowed
+                                      ${selectedPaintingId === painting.id ? '' : 'sm:block hidden'}`}
+                                    title="Not for sale"
+                                  >
+                                    Buy
+                                  </button>
                                 )}
                               </div>
                             </div>
@@ -319,28 +315,28 @@ export default function TwoVisionsPage() {
                   {/* Hover/Touch Overlay */}
                   <div className={`absolute inset-0 bg-black elegant-transition flex items-center justify-center
                     ${selectedPaintingId === painting.id ? 'bg-opacity-60 opacity-100' : 'bg-opacity-0 group-hover:bg-opacity-60 opacity-0 group-hover:opacity-100'}`}>
-                    {(selectedPaintingId === painting.id || window.innerWidth >= 640) && (
-                      <>
-                        {painting.forSale ? (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              window.location.href = `/two-visions/bid/${painting.id}`;
-                            }}
-                            className="px-4 py-2 bg-white text-black text-sm font-light hover:bg-gray-200 elegant-transition"
-                          >
-                            Buy
-                          </button>
-                        ) : (
-                          <button
-                            disabled
-                            className="px-4 py-2 bg-gray-600 text-gray-400 text-sm font-light cursor-not-allowed"
-                            title="Not for sale"
-                          >
-                            Buy
-                          </button>
-                        )}
-                      </>
+                    {painting.forSale ? (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (selectedPaintingId === painting.id || (typeof window !== 'undefined' && window.innerWidth >= 640)) {
+                            window.location.href = `/two-visions/bid/${painting.id}`;
+                          }
+                        }}
+                        className={`px-4 py-2 bg-white text-black text-sm font-light hover:bg-gray-200 elegant-transition
+                          ${selectedPaintingId === painting.id ? '' : 'sm:block hidden'}`}
+                      >
+                        Buy
+                      </button>
+                    ) : (
+                      <button
+                        disabled
+                        className={`px-4 py-2 bg-gray-600 text-gray-400 text-sm font-light cursor-not-allowed
+                          ${selectedPaintingId === painting.id ? '' : 'sm:block hidden'}`}
+                        title="Not for sale"
+                      >
+                        Buy
+                      </button>
                     )}
                   </div>
                 </div>
