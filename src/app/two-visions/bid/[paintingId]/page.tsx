@@ -197,7 +197,7 @@ export default function BidPage() {
             {currentBid !== null && (
               <div className="mb-6 p-4 bg-gray-50 baroque-border">
                 <p className="text-sm text-gray-700">Current Highest Bid:</p>
-                <p className="text-2xl font-light text-black">${currentBid}</p>
+                <p className="text-2xl font-light text-black">€{currentBid}</p>
               </div>
             )}
 
@@ -225,7 +225,7 @@ export default function BidPage() {
                     value={bidAmount}
                     onChange={(e) => setBidAmount(e.target.value)}
                     className="w-full px-4 py-3 baroque-border focus:outline-none focus:ring-2 focus:ring-black text-black"
-                    placeholder={currentBid ? `Minimum: $${currentBid + 1}` : 'Enter amount'}
+                    placeholder={currentBid ? `Minimum: €${currentBid + 1}` : 'Enter amount'}
                     min={currentBid ? currentBid + 1 : 1}
                     step="0.01"
                     required

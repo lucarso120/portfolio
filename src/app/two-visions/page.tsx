@@ -18,6 +18,7 @@ interface PaintingDetails {
   place?: string;
   forSale?: boolean;
   aspectRatio?: string;
+  details?: string;
 }
 
 interface Artist {
@@ -36,16 +37,16 @@ const artists: Artist[] = [
     tiktok: "https://tiktok.com/@lica0011",
     paintings: [
       // Panel: plants, lighters
-      { id: 'still_life_3', name: 'Still Life 3', filename: 'still_life_3.jpeg', panel: 'plants_lighters', forSale: true },
-      { id: 'still_life_1', name: 'Still Life 1', filename: 'still_life_1.jpeg', panel: 'plants_lighters', forSale: true },
+      { id: 'still_life_3', name: 'Still Life 3', filename: 'still_life_3.jpeg', panel: 'plants_lighters', forSale: false, details: 'Oil on canvas (20x30)' },
+      { id: 'still_life_1', name: 'Still Life 1', filename: 'still_life_1.jpeg', panel: 'plants_lighters', forSale: true, details: 'Oil on canvas (20x30)' },
       // Panel: Hundred Years of Solitude collection
-      { id: 'coronel_aureliano_buendia', name: 'Coronel Aureliano Buendia', filename: 'coronel_aureliano_buendia.JPG', panel: 'hundred_years', forSale: true },
-      { id: 'ursula_iguaran', name: 'Ursula Iguaran', filename: 'ursula_iguaran.jpg', panel: 'hundred_years', forSale: true },
-      { id: 'melquiades', name: 'Melquiades', filename: 'melquiades.PNG', panel: 'hundred_years', forSale: true },
-      { id: 'morte_de_jose_arcadio', name: 'Morte De Jose Arcadio', filename: 'morte_de_jose_arcadio.jpg', panel: 'hundred_years', forSale: true },
+      { id: 'coronel_aureliano_buendia', name: 'Coronel Aureliano Buendia', filename: 'coronel_aureliano_buendia.JPG', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
+      { id: 'ursula_iguaran', name: 'Ursula Iguaran', filename: 'ursula_iguaran.jpg', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
+      { id: 'melquiades', name: 'Melquiades', filename: 'melquiades.PNG', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
+      { id: 'morte_de_jose_arcadio', name: 'Morte De Jose Arcadio', filename: 'morte_de_jose_arcadio.jpg', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
       // Single paintings
-      { id: 'venus', name: 'Venus', filename: 'venus.JPG', forSale: true, aspectRatio: '3/2' },
-      { id: 'calma_fogo_calma', name: 'Calma-Fogo-Calma', filename: 'calma-fogo-calma.jpeg', forSale: true, aspectRatio: '2/1' },
+      { id: 'venus', name: 'Venus', filename: 'venus.JPG', forSale: true, aspectRatio: '3/2', details: 'Oil on canvas (60x50)' },
+      { id: 'calma_fogo_calma', name: 'Calma-Fogo-Calma', filename: 'calma-fogo-calma.jpeg', forSale: true, aspectRatio: '2/1', details: 'Oil on wood (70x40)' },
     ]
   },
   {
@@ -55,18 +56,18 @@ const artists: Artist[] = [
     tiktok: "https://tiktok.com/@mariajulia.rd",
     paintings: [
       // Single paintings
-      { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true },
-      { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true },
-      { id: 'autorretrato', name: 'autorretrato', filename: 'autorretrato.png', forSale: false },
+      { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true, details: 'Oil on canvas (60x70)' },
+      { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true, details: 'Oil on canvas (60x80)' },
+      { id: 'autorretrato', name: 'Autorretrato', filename: 'autorretrato.png', forSale: false, details: 'Oil on canvas (40x60)' },
       // Panel A
-      { id: 'maju_a_1', name: '1', filename: 'maju_a_1.png', panel: 'a', forSale: true },
-      { id: 'maju_a_2', name: '2', filename: 'maju_a_2.png', panel: 'a', forSale: true },
-      { id: 'maju_a_3', name: '3', filename: 'maju_a_3.png', panel: 'a', forSale: true },
+      { id: 'maju_a_1', name: '1', filename: 'maju_a_1.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
+      { id: 'maju_a_2', name: '2', filename: 'maju_a_2.png', panel: 'a', forSale: true, details: 'Oil on canvas (30x30)' },
+      { id: 'maju_a_3', name: '3', filename: 'maju_a_3.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
       // Panel B
-      { id: 'maju_b_1', name: '1', filename: 'maju_b_1.png', panel: 'b', forSale: true },
-      { id: 'maju_b_2', name: '2', filename: 'maju_b_2.png', panel: 'b', forSale: true },
-      { id: 'maju_b_3', name: '3', filename: 'maju_b_3.png', panel: 'b', forSale: true },
-      { id: 'maju_b_4', name: '4', filename: 'maju_b_4.png', panel: 'b', forSale: true },
+      { id: 'maju_b_1', name: 'Cavalo', filename: 'maju_b_1.png', panel: 'b', forSale: true, details: 'Oil on canvas (30x30)' },
+      { id: 'maju_b_2', name: 'Camarão', filename: 'maju_b_2.png', panel: 'b', forSale: true, details: 'Oil on canvas (20x20)' },
+      { id: 'maju_b_3', name: 'Tangerina', filename: 'maju_b_3.png', panel: 'b', forSale: true, details: 'Oil on canvas (18x24)' },
+      { id: 'maju_b_4', name: 'Galinha', filename: 'maju_b_4.png', panel: 'b', forSale: true, details: 'Oil on canvas (20x20)' },
     ]
   }
 ];
@@ -77,8 +78,8 @@ interface SelectedPainting extends PaintingDetails {
 
 export default function TwoVisionsPage() {
   const [activeTab, setActiveTab] = useState<'luca' | 'maria_julia'>('luca');
-  const [selectedPaintingInfo, setSelectedPaintingInfo] = useState<SelectedPainting | null>(null);
   const [currentBids, setCurrentBids] = useState<Record<string, number>>({});
+  const [selectedPaintingId, setSelectedPaintingId] = useState<string | null>(null);
 
   const currentArtist = artists.find(a => a.folder === activeTab)!;
 
@@ -137,14 +138,6 @@ export default function TwoVisionsPage() {
     }
     return acc;
   }, {} as Record<string, PaintingDetails[]>);
-
-  const openInfo = (painting: PaintingDetails) => {
-    setSelectedPaintingInfo({ ...painting, artistFolder: currentArtist.folder });
-  };
-
-  const closeInfo = () => {
-    setSelectedPaintingInfo(null);
-  };
 
   return (
     <div className="pt-16 min-h-screen bg-white">
@@ -240,7 +233,10 @@ export default function TwoVisionsPage() {
                             key={painting.id}
                             className="group relative"
                           >
-                            <div className="relative aspect-[4/5] mb-2 overflow-hidden baroque-border">
+                            <div
+                              className="relative aspect-[4/5] mb-2 overflow-hidden baroque-border"
+                              onClick={() => setSelectedPaintingId(selectedPaintingId === painting.id ? null : painting.id)}
+                            >
                               <Image
                                 src={`/images/two_visions/${currentArtist.folder}/${painting.filename}`}
                                 alt={painting.name}
@@ -251,38 +247,43 @@ export default function TwoVisionsPage() {
                               {/* Current Bid Badge */}
                               {currentBids[painting.id] && (
                                 <div className="absolute top-2 right-2 bg-black bg-opacity-80 text-white px-2 py-1 text-xs">
-                                  ${currentBids[painting.id]}
+                                  €{currentBids[painting.id]}
                                 </div>
                               )}
                               {/* Hover/Touch Overlay */}
-                              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 elegant-transition flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
-                                <button
-                                  onClick={() => openInfo(painting)}
-                                  className="px-3 py-2 bg-white text-black text-xs font-light hover:bg-gray-200 elegant-transition"
-                                >
-                                  Info
-                                </button>
-                                {painting.forSale ? (
-                                  <button
-                                    onClick={() => {
-                                      window.location.href = `/two-visions/bid/${painting.id}`;
-                                    }}
-                                    className="px-3 py-2 bg-white text-black text-xs font-light hover:bg-gray-200 elegant-transition"
-                                  >
-                                    Buy
-                                  </button>
-                                ) : (
-                                  <button
-                                    disabled
-                                    className="px-3 py-2 bg-gray-600 text-gray-400 text-xs font-light cursor-not-allowed"
-                                    title="Not for sale"
-                                  >
-                                    Buy
-                                  </button>
+                              <div className={`absolute inset-0 bg-black elegant-transition flex items-center justify-center
+                                ${selectedPaintingId === painting.id ? 'bg-opacity-60 opacity-100' : 'bg-opacity-0 group-hover:bg-opacity-60 opacity-0 group-hover:opacity-100'}`}>
+                                {(selectedPaintingId === painting.id || window.innerWidth >= 640) && (
+                                  <>
+                                    {painting.forSale ? (
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          window.location.href = `/two-visions/bid/${painting.id}`;
+                                        }}
+                                        className="px-3 py-2 bg-white text-black text-xs font-light hover:bg-gray-200 elegant-transition"
+                                      >
+                                        Buy
+                                      </button>
+                                    ) : (
+                                      <button
+                                        disabled
+                                        className="px-3 py-2 bg-gray-600 text-gray-400 text-xs font-light cursor-not-allowed"
+                                        title="Not for sale"
+                                      >
+                                        Buy
+                                      </button>
+                                    )}
+                                  </>
                                 )}
                               </div>
                             </div>
-                            <p className="text-xs text-black text-center">{painting.name}</p>
+                            <div className="text-center">
+                              <p className="text-xs text-black">{painting.name}</p>
+                              {painting.details && (
+                                <p className="text-[10px] text-gray-600 mt-1">{painting.details}</p>
+                              )}
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -300,6 +301,7 @@ export default function TwoVisionsPage() {
                 <div
                   className="relative mb-4 overflow-hidden baroque-border"
                   style={{ aspectRatio: painting.aspectRatio || '4/5' }}
+                  onClick={() => setSelectedPaintingId(selectedPaintingId === painting.id ? null : painting.id)}
                 >
                   <Image
                     src={`/images/two_visions/${currentArtist.folder}/${painting.filename}`}
@@ -311,98 +313,50 @@ export default function TwoVisionsPage() {
                   {/* Current Bid Badge */}
                   {currentBids[painting.id] && (
                     <div className="absolute top-2 right-2 bg-black bg-opacity-80 text-white px-2 py-1 text-xs sm:text-sm">
-                      ${currentBids[painting.id]}
+                      €{currentBids[painting.id]}
                     </div>
                   )}
                   {/* Hover/Touch Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 elegant-transition flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
-                    <button
-                      onClick={() => openInfo(painting)}
-                      className="px-4 py-2 bg-white text-black text-sm font-light hover:bg-gray-200 elegant-transition"
-                    >
-                      Info
-                    </button>
-                    {painting.forSale ? (
-                      <button
-                        onClick={() => {
-                          window.location.href = `/two-visions/bid/${painting.id}`;
-                        }}
-                        className="px-4 py-2 bg-white text-black text-sm font-light hover:bg-gray-200 elegant-transition"
-                      >
-                        Buy
-                      </button>
-                    ) : (
-                      <button
-                        disabled
-                        className="px-4 py-2 bg-gray-600 text-gray-400 text-sm font-light cursor-not-allowed"
-                        title="Not for sale"
-                      >
-                        Buy
-                      </button>
+                  <div className={`absolute inset-0 bg-black elegant-transition flex items-center justify-center
+                    ${selectedPaintingId === painting.id ? 'bg-opacity-60 opacity-100' : 'bg-opacity-0 group-hover:bg-opacity-60 opacity-0 group-hover:opacity-100'}`}>
+                    {(selectedPaintingId === painting.id || window.innerWidth >= 640) && (
+                      <>
+                        {painting.forSale ? (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.location.href = `/two-visions/bid/${painting.id}`;
+                            }}
+                            className="px-4 py-2 bg-white text-black text-sm font-light hover:bg-gray-200 elegant-transition"
+                          >
+                            Buy
+                          </button>
+                        ) : (
+                          <button
+                            disabled
+                            className="px-4 py-2 bg-gray-600 text-gray-400 text-sm font-light cursor-not-allowed"
+                            title="Not for sale"
+                          >
+                            Buy
+                          </button>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-light text-black mb-1">
-                  {painting.name}
-                </h3>
+                <div className="text-center">
+                  <h3 className="text-base sm:text-lg font-light text-black mb-1">
+                    {painting.name}
+                  </h3>
+                  {painting.details && (
+                    <p className="text-xs sm:text-sm text-gray-600">{painting.details}</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Info Modal */}
-      {selectedPaintingInfo && (
-        <div
-          className="fixed inset-0 z-[9999] bg-black bg-opacity-90 flex items-center justify-center p-4"
-          onClick={closeInfo}
-        >
-          <div
-            className="relative max-w-md w-full bg-white p-6 baroque-border"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 className="text-xl sm:text-2xl font-light text-black mb-4">
-              {selectedPaintingInfo.name}
-              {selectedPaintingInfo.panel && ` (${panelNames[selectedPaintingInfo.panel] || selectedPaintingInfo.panel})`}
-            </h3>
-            <div className="text-sm sm:text-base text-gray-700 space-y-2 mb-6">
-              {selectedPaintingInfo.dimensions && <p><strong>Dimensions:</strong> {selectedPaintingInfo.dimensions}</p>}
-              {selectedPaintingInfo.year && <p><strong>Year:</strong> {selectedPaintingInfo.year}</p>}
-              {selectedPaintingInfo.technique && <p><strong>Technique:</strong> {selectedPaintingInfo.technique}</p>}
-              {selectedPaintingInfo.place && <p><strong>Place:</strong> {selectedPaintingInfo.place}</p>}
-            </div>
-
-            {/* Buy Button */}
-            {selectedPaintingInfo.forSale ? (
-              <button
-                onClick={() => {
-                  window.location.href = `/two-visions/bid/${selectedPaintingInfo.id}`;
-                }}
-                className="w-full px-4 sm:px-6 py-3 bg-black text-white font-light hover:bg-gray-800 elegant-transition text-sm sm:text-base mb-3"
-              >
-                I want to buy this painting
-              </button>
-            ) : (
-              <div className="mb-3">
-                <button
-                  disabled
-                  className="w-full px-4 sm:px-6 py-3 bg-gray-300 text-gray-500 font-light cursor-not-allowed text-sm sm:text-base"
-                >
-                  Not for sale
-                </button>
-              </div>
-            )}
-
-            {/* Close button */}
-            <button
-              onClick={closeInfo}
-              className="absolute top-4 right-4 text-black hover:text-gray-600 elegant-transition"
-            >
-              <X size={24} />
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
