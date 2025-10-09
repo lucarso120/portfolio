@@ -56,8 +56,8 @@ const artists: Artist[] = [
     tiktok: "https://tiktok.com/@mariajulia.rd",
     paintings: [
       // Single paintings
-      { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true, details: 'Oil on canvas (60x70)' },
-      { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true, details: 'Oil on canvas (60x80)' },
+      { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true,details: 'Oil on canvas (60x70)' },
+      { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true, aspectRatio: "2/3", details: 'Oil on canvas (60x80)' },
       { id: 'autorretrato', name: 'Autorretrato', filename: 'autorretrato.png', forSale: false, details: 'Oil on canvas (40x60)' },
       // Panel A
       { id: 'maju_a_1', name: '1', filename: 'maju_a_1.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
@@ -292,7 +292,11 @@ export default function TwoVisionsPage() {
             {groupedPaintings['single']?.map((painting) => (
               <div
                 key={painting.id}
-                className={`group relative ${painting.aspectRatio === '2/1' || painting.aspectRatio === '3/2' ? 'col-span-2' : 'col-span-1'}`}
+                className={`group relative ${
+                  painting.aspectRatio === '2/1' || painting.aspectRatio === '3/2' ? 'col-span-2' :
+                  (painting.id === 'maju_1' || painting.id === 'maju_2' || painting.id === 'autorretrato') ? 'col-span-2' :
+                  'col-span-1'
+                }`}
               >
                 <div
                   className="relative mb-4 overflow-hidden baroque-border"
