@@ -26,7 +26,13 @@ export const metadata: Metadata = {
     "commissions",
   ],
   icons: {
-    icon: "/images/gallery/human_figure/coronel_aureliano_buendia.JPG",
+    icon: [
+      {
+        url: "/images/gallery/human_figure/coronel_aureliano_buendia.JPG",
+        type: "image/jpeg",
+      },
+    ],
+    shortcut: "/images/gallery/human_figure/coronel_aureliano_buendia.JPG",
   },
 };
 
