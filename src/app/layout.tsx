@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     "paintings",
     "commissions",
   ],
+  icons: {
+    icon: "/images/gallery/human_figure/coronel_aureliano_buendia.JPG",
+  },
 };
 
 export default function RootLayout({
