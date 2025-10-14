@@ -43,7 +43,7 @@ const artists: Artist[] = [
       { id: 'coronel_aureliano_buendia', name: 'Coronel Aureliano Buendia', filename: 'coronel_aureliano_buendia.JPG', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
       { id: 'ursula_iguaran', name: 'Ursula Iguaran', filename: 'ursula_iguaran.jpg', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
       { id: 'melquiades', name: 'Melquiades', filename: 'melquiades.PNG', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
-      { id: 'morte_de_jose_arcadio', name: 'Morte De Jose Arcadio', filename: 'morte_de_jose_arcadio.jpg', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
+      { id: 'jose_arcadio_buendia', name: 'Jose Arcadio Buendia', filename: 'jose_arcadio_buendia.jpg', panel: 'hundred_years', forSale: true, details: 'Oil on canvas (20x25)' },
       // Single paintings
       { id: 'venus', name: 'Venus', filename: 'venus.JPG', forSale: true, aspectRatio: '3/2', details: 'Oil on canvas (60x50)' },
       { id: 'calma_fogo_calma', name: 'Calma-Fogo-Calma', filename: 'calma-fogo-calma.jpeg', forSale: true, aspectRatio: '2/1', details: 'Oil on wood (70x40)' },
@@ -60,9 +60,8 @@ const artists: Artist[] = [
       { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true, aspectRatio: "2/3", details: 'Oil on canvas (60x80)' },
       { id: 'autorretrato', name: 'Autorretrato', filename: 'autorretrato.png', forSale: false, details: 'Oil on canvas (40x60)' },
       // Panel A
-      { id: 'maju_a_1', name: '1', filename: 'maju_a_1.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
-      { id: 'maju_a_2', name: '2', filename: 'maju_a_2.png', panel: 'a', forSale: true, details: 'Oil on canvas (30x30)' },
-      { id: 'maju_a_3', name: '3', filename: 'maju_a_3.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
+      { id: 'maju_a_2', name: '1', filename: 'maju_a_2.png', panel: 'a', forSale: true, details: 'Oil on canvas (30x30)' },
+      { id: 'maju_a_3', name: '2', filename: 'maju_a_3.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
       // Panel B
       { id: 'maju_b_1', name: 'Cavalo', filename: 'maju_b_1.png', panel: 'b', forSale: true, details: 'Oil on canvas (30x30)' },
       { id: 'maju_b_2', name: 'Camarão', filename: 'maju_b_2.png', panel: 'b', forSale: true, details: 'Oil on canvas (20x20)' },
