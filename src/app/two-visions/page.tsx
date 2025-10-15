@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Instagram } from 'lucide-react';
+import { Instagram, Link } from 'lucide-react';
 import { db } from '@/lib/firebase';
 import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 import { FaTiktok } from 'react-icons/fa';
@@ -26,6 +26,7 @@ interface Artist {
   folder: string;
   instagram?: string;
   tiktok?: string;
+  website?: string;
   paintings: PaintingDetails[];
 }
 
@@ -54,11 +55,11 @@ const artists: Artist[] = [
     folder: "maria_julia",
     instagram: "https://www.instagram.com/mariajulia.rds/",
     tiktok: "https://tiktok.com/@mariajulia.rd",
+    website: "https://mariajulia.figma.site/",
     paintings: [
       // Single paintings
       { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true,details: 'Oil on canvas (60x70)' },
       { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true, aspectRatio: "2/3", details: 'Oil on canvas (60x80)' },
-      { id: 'autorretrato', name: 'Autorretrato', filename: 'autorretrato.png', forSale: false, details: 'Oil on canvas (40x60)' },
       // Panel A
       { id: 'maju_a_2', name: '1', filename: 'maju_a_2.png', panel: 'a', forSale: true, details: 'Oil on canvas (30x30)' },
       { id: 'maju_a_3', name: '2', filename: 'maju_a_3.png', panel: 'a', forSale: true, details: 'Oil on canvas (40x50)' },
@@ -200,6 +201,17 @@ export default function TwoVisionsPage() {
                   aria-label="TikTok"
                 >
                   <FaTiktok className="w-5 h-5 sm:w-6 sm:h-6" />
+                </a>
+              )}
+              {currentArtist.website && (
+                <a
+                  href={currentArtist.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 baroque-border text-black hover:bg-black hover:text-white elegant-transition"
+                  aria-label="Website"
+                >
+                  <Link className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               )}
             </div>
