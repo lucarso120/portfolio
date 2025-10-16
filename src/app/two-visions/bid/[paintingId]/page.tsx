@@ -26,7 +26,7 @@ const artists = [
     name: "Maria Júlia",
     folder: "maria_julia",
     paintings: [
-      { id: 'maju_1', name: '1', filename: 'maju_1.png' },
+      { id: 'maju_1', name: 'Sabiá', filename: 'maju_1.png' },
       { id: 'maju_2', name: '2', filename: 'maju_2.png' },
       { id: 'autorretrato', name: 'autorretrato', filename: 'autorretrato.png' },
       { id: 'maju_a_1', name: '1', filename: 'maju_a_1.png', panel: 'a' },
