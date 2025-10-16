@@ -58,7 +58,7 @@ const artists: Artist[] = [
     website: "https://mariajulia.figma.site/",
     paintings: [
       // Single paintings
-      { id: 'maju_1', name: '1', filename: 'maju_1.png', forSale: true,details: 'Oil on canvas (60x70)' },
+      { id: 'maju_1', name: 'Sabiá', filename: 'maju_1.png', forSale: true,details: 'Oil on canvas (60x70)' },
       { id: 'maju_2', name: '2', filename: 'maju_2.png', forSale: true, aspectRatio: "2/3", details: 'Oil on canvas (60x80)' },
       // Panel A
       { id: 'maju_a_2', name: '1', filename: 'maju_a_2.png', panel: 'a', forSale: true, details: 'Oil on canvas (30x30)' },
